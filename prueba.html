@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo | Go Mystery!</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #FFF7EE;
+      color: #131111; 
+    }
+
+    header {
+      background-color: #6E328D;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      color: #ED7F32;
+      font-size: 2.5rem;
+      margin: 1rem 0;
+    }
+
+    .titulo {
+      color: #ED7F32;
+      font-size: 2.5rem;
+      margin-left: 50px;
+    }
+    
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .tarjeta {
+      position: relative;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: scale(1.03);
+    }
+
+    .tarjeta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(19, 17, 17, 0.8), transparent 60%);
+    }
+
+    .tarjeta h2 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      z-index: 2;
+      margin: 0;
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 4px black;
+    }
+
+    a {
+      display: inline-block;
+      background-color: #ED7F32;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      margin-left: 50px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-left: 50px;
+    }
+    
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Catálogo de Destinos</h1>
+    <p style="color: #FFF7EE;">Conoce los lugares que podrías visitar… ¡sin saberlo aún!</p>
+    <p style="color: #FFF7EE;">Pd: Estos son algunos de los países a los que podrias llegar por sorpresa, 
+      ¡ya que el misterio es aventura!
+    </p>
+  </header>
+
+  <div class="titulo">
+    <h1>Europa:</h1>
+  </div>
+
+  <section class="catalogo">
+
+    <div class="tarjeta" style="background-image: url('Alemania/PHOTO-2025-06-19-13-59-53\ 2.jpg');">
+      <h2>Alemania</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Finlandia/PHOTO-2025-06-19-14-04-26.jpg');">
+      <h2>Finlandia</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Monaco/PHOTO-2025-06-19-14-05-18.jpg');">
+      <h2>Monaco</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Suecia/PHOTO-2025-06-19-14-06-31.jpg');">
+      <h2>Suecia</h2>
+    </div>
+  </section>
+
+  <div class="titulo">
+    <h1>América:</h1>
+  </div>
+
+  <section class="catalogo">
+    <div class="tarjeta" style="background-image: url('Argentina/PHOTO-2025-06-19-13-51-41.jpg');">
+      <h2>Argentina</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Canada/PHOTO-2025-06-19-13-47-07.jpg');">
+      <h2>Canadá</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Chile/PHOTO-2025-06-19-13-54-15\ 2.jpg');">
+      <h2>Chile</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Jamaica/PHOTO-2025-06-19-13-50-06.jpg');">
+      <h2>Jamaica</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Uruguay/PHOTO-2025-06-19-13-56-52.jpg');">
+      <h2>Uruguay</h2>
+    </div>
+  </section>
+
+  <div class="titulo">
+    <h1>Asia:</h1>
+  </div>
+
+  <section class="catalogo">
+    <div class="tarjeta" style="background-image: url('China/PHOTO-2025-06-19-14-09-12\ 2.jpg');">
+      <h2>China</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Indonesia/PHOTO-2025-06-19-14-11-06\ 2.jpg');">
+      <h2>Indonesia</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Japón/PHOTO-2025-06-19-14-13-33.jpg');">
+      <h2>Japón</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Maldivas/PHOTO-2025-06-19-14-14-51\ 2.jpg');">
+      <h2>Maldivas</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Suiza/PHOTO-2025-06-19-14-15-27\ 2.jpg');">
+      <h2>Suiza</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Singapur/PHOTO-2025-06-19-14-19-06\ 2.jpg');">
+      <h2>Singapur</h2>
+    </div>
+
+  </section>
+
+  <div class="titulo">
+    <h1>Oceania:</h1>
+  </div>
+
+  <section class="catalogo">
+    <div class="tarjeta" style="background-image: url('Australia/PHOTO-2025-06-19-14-23-49\ 2.jpg');">
+      <h2>Australia</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Nueva Zelanda/PHOTO-2025-06-19-14-25-47.jpg');">
+      <h2>Nueva Zelanda</h2>
+    </div>
+
+    <div class="tarjeta" style="background-image: url('Fiyi/PHOTO-2025-06-19-14-28-56.jpg');">
+      <h2>Fiyi</h2>
+    </div>
+
+  </section>
+
+  <div class="titulo">
+    <h1>Africa:</h1>
+  </div>
+
+  <section class="catalogo">
+    <div class="tarjeta" style="background-image: url('Maruecos/PHOTO-2025-06-19-14-36-33\ 2.jpg');">
+      <h2>Marruecos</h2>
+    </div>
+
+  </section>
+
+
+
+  <h2>Si deseas agendar un viaje por favor llenar el formulario que se le brinda a continuación:</h2>
+  <div class="botones">
+    <a href="https://forms.gle/hZTtHd5nGFiueF7Q9" target="_blank">Formulario de viaje</a>
+    <br>
+    <br>
+    <a href="index.html">Página principal</a>
+    <br>
+    <br>
+  </div>
+
+</body>
+</html>

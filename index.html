@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>MysteryGo!</title>
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        } 
+    
+        .chat-box {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 300px;
+          max-height: 400px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 12px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.2);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }
+    
+        .chat-header {
+          background-color: #c05203;
+          color: white;
+          padding: 10px;
+          font-weight: bold;
+          text-align: center;
+        }
+    
+        .chat-messages {
+          flex: 1;
+          padding: 10px;
+          overflow-y: auto;
+          background: #f9f9f9;
+        }
+    
+        .chat-input {
+          display: flex;
+          border-top: 1px solid #ccc;
+        }
+    
+        .chat-input input {
+          flex: 1;
+          border: none;
+          padding: 10px;
+          outline: none;
+        }
+    
+        .chat-input button {
+          background-color: #e58702;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+        }
+    
+        .message {
+          margin: 5px 0;
+        }
+    
+        .message.user {
+          text-align: right;
+          color: #333;
+        }
+    
+        .message.bot {
+          text-align: left;
+          color: #555;
+        }
+      </style>
+    </head>
+    <body>
+    
+    <!-- Chatbox flotante -->
+<div class="chatbox" id="chatbox">
+  <div class="chat-header" onclick="toggleChat()">
+    ¿Preguntas? 💬
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="message bot">Hola 👋 <br> Soy Misy y sere tu chat box para resolver tus dudas sobre las 
+      póliticas de la empresa.</div>
+      <div class="message bot">Algunas consultas frecuentes que me llegan son: <br> cancelación del vuelo (1), forma de pago (2), tu destino (3), seguro de viaje (4), 
+        fotos de tu viaje (5), datos personales (6), problemas durante el vuelo o con la agencia (7). Si tiene alguna de las siguientes consultas digite el número de la categoria que desea consultar.</div> 
+      <div class="message bot">Si no llego a responder tu duda por favor contacta a nuestro personal al: <br> 
+        Teléfono: 70255848 <br> Gmail: gomysterycorreoelectronico@gmail.com</div> 
+  </div>
+
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." />
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<style>
+  .chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  .chat-header {
+    background-color: #6E328D;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .chat-body {
+    max-height: 300px;
+    background-color: #FFF7EE;
+    overflow-y: auto;
+    padding: 1rem;
+    display: none;
+  }
+
+  .chat-input {
+    display: none;
+    background: #EEDAE7;
+    padding: 0.5rem;
+    display: flex;
+  }
+
+  .chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+  }
+
+  .chat-input button {
+    background-color: #ED7F32;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .message {
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+
+  .bot {
+    background-color: #EEDAE7;
+  }
+
+  .user {
+    background-color: #ED7F32;
+    color: white;
+    text-align: right;
+  }
+</style>
+
+<script>
+  const responses = {
+    "1": "¡Claro! La cancelación funciona con más de 5 meses de anticipación, se te reembolsa el 80% si fuera el caso de que cancele. Con menos de 5 meses no hay reembolso.",
+    "2": "Con el pago debes pagar el 50% para reservar y el resto 5 días antes del viaje. Aceptamos Sinpe, transferencia y más. También puedes contactarnos por Whatsapp o correo electónico.",
+    "3": "El destino del viaje se revela el día del viaje o en el momento acordado. ¡Es sorpresa! 🎁 Entonces preparate y ábrete a las posibilidades",
+    "4": "Te recomendamos contratar un seguro de viaje por tu seguridad. Si tienes más dudas puedes buscar en tu servicio de seguros local o podemos ayudarte con nuestro personal a darte una idea de que puede ayudarte.",
+    "5": "Nuestra idea es usar tus fotos/vídeos en nuestras redes para compartir tu experiencia con nostros y que tal te parecio el viaje, también puedes etiquetarnos o mencionarnos en tus redes sociales con tus amigos o familiares. Pero respetaremos tu privacidad si nos lo pedís.",
+    "6": "Solo recopilamos tus datos necesarios para el viaje. No los compartimos con terceros (salvo proveedores).",
+    "7": "Dependiendo del caso tenemos escritos los procedimientos en nuestro términos y condiciones. Pero si llega a ser un caso mayor o muy específico ya se tendría que ver con un abogado o tercero.",
+    "gracias": "¡Gracias a ti por preferirnos!",
+    "Gracias": "¡Gracias a ti por preferirnos!",
+  };
+
+  function toggleChat() {
+    const body = document.getElementById('chatBody');
+    const input = document.querySelector('.chat-input');
+    body.style.display = body.style.display === 'block' ? 'none' : 'block';
+    input.style.display = input.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    appendMessage(text, 'user');
+
+    let response = "Lo siento, no puedo responder esa pregunta. Elige una opción de las que te comente anteriormente y sino ponte en contacto con nuestro personal.";
+    for (const key in responses) {
+      if (text.toLowerCase().includes(key)) {
+        response = responses[key];
+        break;
+      }
+    }
+
+    setTimeout(() => {
+      appendMessage(response, 'bot');
+    }, 600);
+
+    input.value = '';
+  }
+
+  function appendMessage(text, type) {
+    const chatBody = document.getElementById('chatBody');
+    const msg = document.createElement('div');
+    msg.className = `message ${type}`;
+    msg.textContent = text;
+    chatBody.appendChild(msg);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+</script>
+
+
+</head>
+<body>
+    
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Mystery!</title>
+
+  <!-- Tipografía Agrandi (o similar) -->
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family:'Times New Roman', Times, serif; 
+      background-color: #FFF7EE;
+      color: #131111;
+      transition: background-color 0.5s ease;
+    }
+
+    header {
+      background-color: #6E328D;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      color: #ED7F32;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    a {
+      display: inline-block;
+      background-color: #ED7F32;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    a:hover {
+      background-color: #6E328D;
+      transform: scale(1.05);
+    }
+
+    .section {
+      background-color: #EEDAE7;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: box-shadow 0.3s;
+    }
+
+    .section:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="LogoMG.jpeg" alt="Logo Go Mystery" /> 
+    <h1>Go Mystery!</h1>
+  </header>
+
+  <main>
+    <div class="section">
+      <p>¡Donde las aventuras huelen a misterio y aventura!</p>
+    </div>
+
+    <div class="section">
+      <h2>¿Quiénes somos?</h2>
+      <p>Somos una agencia de viajes sorpresa, ¿viajes sorpresa? Sí, viajes sorpresa. Suena algo descabellado pero ese es nuestro trabajo.
+        Organizamos viajes sorpresa para amantes de la aventura, ansiosos por el misterio de conocer nuevos lugares. ¡Si deseas viajar a lo 
+        desconocido, somos tu agencia!
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>Servicios generales:</h3>
+      <p>Ofrecemos la planificación de un viaje sorpresa a aventureros que deseen una experiencia fuera de lo ordinario. 
+        Danos tus preferencias, gustos y presupuesto y nosotros nos encargamos del resto.
+      </p>
+      <p>También brindamos servicio de transporte junto con la organización del viaje.</p>
+      <a href="transporte.html">Transportes</a>
+    </div>
+
+    <div class="section">
+      <h3>Nuestros terminos y condiciones:</h3>
+      <p>Aqui te dejamos nuestros términos y condiciones sobre la empresa y nuestros servicios. 
+        Si tienes alguna consulta puedes consultar con nuestro chat box.
+      </p>
+      <p>A continuación te dejamos nuestro términos y condiciones:</p>
+      <a href="TÉRMINOS Y CONDICIONES DE SERVICIO.pdf">Terminos y condiciones</a>
+    </div>
+
+    <a href="prueba.html">Explorar viajes</a>
+
+  </main>
+
+</body>
+</html>
+
+    
+
+</body>
+</html>

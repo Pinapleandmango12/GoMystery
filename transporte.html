@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transportes | Go Mystery!</title>
+
+  <!-- Fuente tipo Agrandi -->
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #FFF7EE; 
+      color: #131111;
+      transition: background-color 0.5s ease;
+    }
+
+    header {
+      background-color: #6E328D;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 1.5rem 0;
+      color: #ED7F32;
+    }
+
+    p {
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background-color: #EEDAE7;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transition: box-shadow 0.3s;
+    }
+
+    .section:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #6E328D;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+    }
+
+    a {
+      display: inline-block;
+      background-color: #ED7F32;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    a:hover {
+      background-color: #6E328D;
+      transform: scale(1.05);
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    header {
+      background-color: #6E328D;
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      color: #ED7F32; 
+      font-size: 2.5rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .slider-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 3rem auto;
+      overflow: hidden;           
+      border-radius: 15px;        
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+    }
+
+    .slider {
+      display: flex;
+      width: 300%;                
+      animation: slide 12s infinite;
+    }
+
+    .slide {
+      width: 100%;                
+      flex-shrink: 0;             
+      background-size: cover;     
+      background-position: center;
+      height: 400px;
+      transition: background-image 1s ease-in-out;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0%); }       
+      33%  { transform: translateX(-100%); }    
+      66%  { transform: translateX(-200%); }    
+      100% { transform: translateX(0%); }       
+    }
+
+    .caption {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- texto -->
+  <header>
+    <h1>Transportes que ofrecemos</h1>
+  </header>
+
+  <div class="container">
+
+    <p>Nos adaptamos a las necesidades de cada viaje sorpresa, siempre asegurando comodidad y seguridad.</p>
+
+    <div class="section">
+      <h2>Opciones disponibles:</h2>
+      <ul>
+        <li>🚌 Transporte terrestre privado (busetas con aire acondicionado y chofer profesional)</li>
+        <li>🚐 Vehículos compartidos con otros viajeros de Go Mystery</li>
+        <li>🚗 Vehículos alquilados para grupos privados</li>
+        <li>✈️ Vuelos nacionales e internacionales, según el destino sorpresa</li>
+        <li>⛴️ Transporte acuático para destinos costeros o con acceso por ferry</li>
+      </ul>
+    </div>
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transportes | Go Mystery!</title>
+
+  <!-- Fuente decorativa similar a Agrandi -->
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <h1>Transportes que ofrecemos</h1>
+    <p style="color: #FFF7EE;">Conoce nuestras opciones de transporte sorpresa</p>
+  </header>
+
+  <!-- Carrusel de imágenes -->
+  <div class="slider-container">
+    <div class="slider">
+      <!-- Imagen 1: transporte terrestre -->
+      <div class="slide" style="background-image: url('bus.jpg');"></div>
+
+      <!-- Imagen 2: transporte aéreo -->
+      <div class="slide" style="background-image: url('avion.jpg');"></div>
+
+      <!-- Imagen 3: transporte acuático -->
+      <div class="slide" style="background-image: url('ferry.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Leyenda -->
+  <p class="caption">*Las imágenes rotan automáticamente cada pocos segundos*</p>
+
+</body>
+</html>
+
+
+    <div class="section">
+      <h2>Importante:</h2>
+      <p>El tipo de transporte será asignado en función del destino y presupuesto del paquete contratado.</p>
+    </div>
+
+    <div class="center">
+      <a href="index.html">Volver a la página principal</a>
+    </div>
+  </div>
+
+</body>
+</html>

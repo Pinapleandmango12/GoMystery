@@ -75,6 +75,7 @@
         .message.bot {
           text-align: left;
           color: #555;
+
         }
       </style>
     </head>
@@ -91,7 +92,7 @@
       <div class="message bot">Algunas consultas frecuentes que me llegan son: <br> cancelación del vuelo (1), forma de pago (2), tu destino (3), seguro de viaje (4), 
         fotos de tu viaje (5), datos personales (6), problemas durante el vuelo o con la agencia (7). Si tiene alguna de las siguientes consultas digite el número de la categoria que desea consultar.</div> 
       <div class="message bot">Si no llego a responder tu duda por favor contacta a nuestro personal al: <br> 
-        Teléfono: 70255848 <br> Gmail: gomysterycorreoelectronico@gmail.com</div> 
+        Teléfono: 70255848 <br> Gmail: gomystery286@gmail.com</div> 
   </div>
 
   <div class="chat-input">
@@ -311,6 +312,60 @@
     .section:hover {
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
+
+    .creadores {
+  background-color: #6E328D; /* Cajita lila */
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #FFF7EE;
+}
+
+.creadores h2 {
+  color: #ED7F32;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.perfil-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.perfil {
+  background-color: #FFF7EE;
+  color: #131111;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.perfil:hover {
+  transform: translateY(-5px);
+}
+
+.perfil .foto {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 4px solid #ED7F32;
+}
+
+.perfil h3 {
+  margin: 0.5rem 0;
+  color: #6E328D;
+}
+
+.perfil p {
+  font-size: 0.95rem;
+}
+
   </style>
 </head>
 <body>
@@ -324,6 +379,39 @@
     <div class="section">
       <p>¡Donde las aventuras huelen a misterio y aventura!</p>
     </div>
+
+    <section class="section">
+      <h2>Conocé a los creadores</h2>
+    
+      <div class="perfil-container">
+    
+        <!-- Perfil 1 -->
+        <div class="perfil">
+          <div class="foto" style="background-image: url('fotoNico.jpeg');"></div>
+          <h3>Nicole Calderón</h3>
+          <p>Fundadora y diseñadora web</p>
+          <p>Apasionada por la aventura, el diseño y las experiencias únicas. Su creatividad y visión dieron vida a Go Mystery!</p>
+        </div>
+    
+        <!-- Perfil 2 -->
+        <div class="perfil">
+          <div class="foto" style="background-image: url('fotoLari.jpg');"></div>
+          <h3>Larisa Barrantes</h3>
+          <p>Directora de Marketing y Comunicación Digital</p>
+          <p>Crear y gestionar contenido en redes sociales. Diseñar la identidad visual de la marca (logo, colores, estilo gráfico).</p>
+        </div>
+
+        <!-- Perfil 3 -->
+        <div class="perfil">
+          <div class="foto" style="background-image: url('fotoAbby.jpeg');"></div>
+          <h3>Abigail Bonilla</h3>
+          <p>Directora de Operaciones y Logística</p>
+          <p>Diseñar los paquetes sorpresa (itinerarios, actividades, presupuestos). Contactar hoteles, operadores turísticos y transportistas.</p>
+        </div>
+    
+      </div>
+    </section>
+    
 
     <div class="section">
       <h2>¿Quiénes somos?</h2>
